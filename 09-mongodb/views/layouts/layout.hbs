@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script>
+                // A $( document ).ready() block.
+        $( document ).ready(function() {
+            //on hover: buttons except delete turn green, then they turn yellow
+            $(".button").hover(function(){
+                $(this).css("background-color", "green");
+                }, function(){
+                $(this).css("background-color", "yellow");
+            });
+
+            //on hover: delete button turns red then white
+            $(".deleteBtn").hover(function(){
+                $(this).css("background-color", "red");
+                }, function(){
+                $(this).css("background-color", "white");
+            });
+            //on hover: onLoad turns white
+            $("#onLoad").hover(function(){
+                $(this).css("color", "white");
+            });
+        });
+    </script>
+</head>
+<body>
+    <!-- insert index.hbs or error.hbs -->
+    {{{ body }}}
+    
+</body>
+</html>
