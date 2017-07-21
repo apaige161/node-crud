@@ -10,15 +10,19 @@ var url = 'mongodb://localhost:27017/test';
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
+  //render index.html
   res.render('index');
 });
 
 router.get('/get-data', function(req, res, next) {
+  //set var to an array
   var resultArray = [];
+  //open connection
   mongo.connect(url, function(err, db) {
     assert.equal(null, err);
       //db collection FROM the database 'test' that we are targeting is 'user-data'
     var cursor = db.collection('user-data').find();
+    //loop over all items in 'user-data'
     cursor.forEach(function(doc, err) {
       assert.equal(null, err);
       resultArray.push(doc);
@@ -49,6 +53,7 @@ router.post('/insert', function(req, res, next) {
 });
 
 router.post('/update', function(req, res, next) {
+  //create item to store data within the function
   var item = {
     title: req.body.title,
     content: req.body.content,
@@ -71,15 +76,18 @@ router.post('/update', function(req, res, next) {
 
 router.post('/delete', function(req, res, next) {
   var id = req.body.id;
-
+  //connect to db
   mongo.connect(url, function(err, db) {
     assert.equal(null, err);
+    //delete item by id
     db.collection('user-data').deleteOne({"_id": objectId(id)}, function(err, result) {
       assert.equal(null, err);
-      console.log('Item deleted');
+      console.log(result);
+      //close connection
       db.close();
     });
   });
 });
 
+//export router
 module.exports = router;

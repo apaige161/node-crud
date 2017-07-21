@@ -5,12 +5,14 @@
 2. install npm
 3. install mongodb
 
-4. clone github repository
-5. run npm install in the console
+4. navigate to 09-mongodb 
+
+5. clone github repository
+6. run npm install in the console
     a. open the console,
     b. run 'npm install' to install all dependencies
-6. start mongo server by:
+7. start mongo server by:
     a. run 'mongod' to start server
     b. run 'mongo'
-7. run 'npm start' in console
-8. open browser to http://localhost:8000/ to see the CRUDy app
+8. run 'npm start' in console
+9. open browser to http://localhost:8000/ to see the CRUDy app
